@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   mount_devise_token_auth_for 'User', at: 'auth'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :sys_admin do
-    resources :roles
+    resources :users, except: [:destroy]
+    resources :roles, except: [:create, :destroy]
+    resources :user_roles
   end
 
 end
