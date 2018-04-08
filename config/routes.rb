@@ -6,10 +6,12 @@ Rails.application.routes.draw do
     resources :roles, except: [:show, :create, :edit, :update, :destroy]
   end
 
-  namespace :sys_admin do
-    resources :users, except: [:destroy]
-    resources :roles, except: [:create, :destroy]
-    resources :user_roles
+  namespace :admin do
+    scope module: 'permissions' do
+      resources :users, except: [:destroy]
+      resources :roles, except: [:create, :destroy]
+      resources :user_roles
+    end
   end
 
 end

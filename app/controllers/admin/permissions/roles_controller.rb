@@ -1,4 +1,4 @@
-class SysAdmin::RolesController < ApplicationController
+class  Admin::Permissions::Permissions::RolesController < ApplicationController
   before_action :set_role, only: [:show, :update, :destroy]
 
   # GET /sys_admin/roles
