@@ -49,15 +49,15 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "sch_sys_#{Rails.env}"
   config.action_mailer.perform_deliveries = true
   config.action_mailer.perform_caching = false
-  config.action_mailer.default_url_options = { :host => "http://localhost:3000", :only_path => false }
+  config.action_mailer.default_url_options = { host: ENV['HOST_URL'], only_path: false }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :user_name => ENV["MAIL_NAME"],
-    :password => ENV["MAIL_PASSWORD"],
-    :address => ENV["MAIL_ADDRESS"],
-    :domain => ENV["MAIL_DOMAIN"],
-    :port => ENV["MAIL_PORT"],
-    :authentication => :cram_md5
+    user_name: ENV['MAIL_NAME'],
+    password: ENV['MAIL_PASSWORD'],
+    address: ENV['MAIL_ADDRESS'],
+    domain: ENV['MAIL_DOMAIN'],
+    port: ENV['MAIL_PORT'],
+    authentication: :cram_md5
   }
 
   # Ignore bad email addresses and do not raise email delivery errors.

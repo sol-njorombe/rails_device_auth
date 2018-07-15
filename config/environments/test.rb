@@ -29,15 +29,15 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_controller.allow_forgery_protection = false
   config.action_mailer.perform_caching = false
-  config.action_mailer.default_url_options = { :host => "http://localhost:3000", :only_path => false }
+  config.action_mailer.default_url_options = { host: ENV['HOST_URL'], only_path: false }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :user_name => ENV["MAIL_NAME"],
-    :password => ENV["MAIL_PASSWORD"],
-    :address => ENV["MAIL_ADDRESS"],
-    :domain => ENV["MAIL_DOMAIN"],
-    :port => ENV["MAIL_PORT"],
-    :authentication => :cram_md5
+    user_name: ENV['MAIL_NAME'],
+    password: ENV['MAIL_PASSWORD'],
+    address: ENV['MAIL_ADDRESS'],
+    domain: ENV['MAIL_DOMAIN'],
+    port: ENV['MAIL_PORT'],
+    authentication: :cram_md5
   }
 
   # Tell Action Mailer not to deliver emails to the real world.
